@@ -23,7 +23,7 @@
             <div class="empty"></div>
             <article>
                 <div class="title">
-                    <h1>Alessio, the mind: THIS IS A WORK IN PROGRESS</h1>
+                    <h1>Alessio, the mind</h1>
                 </div>
                 <div class="description">
                     <p>The mind, the man, the sword that draws a sharp line between the sky and the sea, the hatchlings searching for the wood, the smell of the trees.</p>
@@ -39,7 +39,7 @@
                 <div class="text">
                     <h2>The Sword</h2>
                     <p>The height of the light is opening outside of the window.</p>
-                    <a href="https://www.alessiogatti.com">More about The Sword</a>
+                    <a href="https://bandcamp.com/alessiogferraioli">More about The Sword</a>
                 </div>
             </article>
         </section>
@@ -52,7 +52,7 @@
                 <div class="text">   
                     <h2>The Edge</h2>
                     <p>The height of the light is opening outside of the window.</p>
-                    <a href="https://www.alessiogatti.com">More about The Edge</a>
+                    <a href="https://www.behance.net/alessiosaffalo">More about The Edge</a>
                 </div>
             </article>
         </section>
@@ -65,7 +65,7 @@
                 <div class="text">
                     <h2>The Light</h2>
                     <p>The heigh of the light is opening outside of the window.</p>
-                    <a href="https://www.alessiogatti.com">More about The Light</a>
+                    <a href="https://www.domestika.org/it/alessioferraioli">More about The Light</a>
                 </div>
             </article>
         </section>
@@ -73,5 +73,30 @@
         <section id="contact" class="contact full-screen">
             <a href="mailto:alessioferraioli@hotmail.it">alessioferraioli@hotmail.it</a>
         </section>
+
+        <script>
+
+            let emptyElement = document.querySelector('.about .empty');
+            let titleElement = document.querySelector('.about .title');
+            let figureElements = document.querySelectorAll('.service figure'); /* figureElement is a nodeList */
+
+            console.log(figureElements);
+
+            window.addEventListener('mousemove', handleMouseMove);
+
+            function handleMouseMove(event) {
+                emptyElement.style.flexBasis = event.clientX + 'px'; /* resize by changing the flex basis depending on mouse x */
+                titleElement.style.flexBasis = event.clientY/2 + 'px';  /* resize by changing the flex basis depending on mouse y */
+
+                figureElements.forEach( function(element) {
+                    
+                    element.style.flexBasis = (window.innerWidth - event.clientX) + 'px';  /* resize by changing the flex basis depending on mouse y */
+                });
+            }
+
+            
+
+        </script>
+
     </body>
 </html>
