@@ -1,0 +1,36 @@
+/* contact section styles */
+section.contact {
+    background: linear-gradient(var(--color1),var(--color3) 60%, var(--color2) 70%, #e5e5e5);
+    border-radius: var(--border-radius);
+    align-items: center;
+    justify-content: center;
+}
+
+section.contact a {
+    font-size: 130px;
+    color: var(--backgroundcolor);
+    font-weight: 700;
+    transition: filter 2s cubic-bezier(.68,.03,.39,1.02); /* making the color change transition smoothly over 2 seconds, with the selected bezier function as timing funciton*/
+    will-change: filter; /* giving the browser a hint that the filter property will change, so it can optimize performance */
+}
+
+section.contact a:hover {
+    filter: blur(20px); /* adding a slight blur effect on hover */
+}
+
+/* making the contact section text adjust if it does not fit the screen (it's 1440px wide)*/
+@media only screen and (max-width: 1440px) {
+    section.contact a {
+        font-size: 70px;
+    }
+}
+
+
+/* making the layout responsive for smaller screens */
+@media only screen and (max-width: 768px) {
+    
+    section.contact a {
+        transform: rotate(90deg); /* rotating the text to fit better on smaller screens */
+    }
+
+}

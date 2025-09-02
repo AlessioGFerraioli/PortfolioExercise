@@ -1,0 +1,39 @@
+/* styles for the about section */
+
+section.about .empty {
+    flex-basis: 37.5vw;
+    background: var(--color4);
+    border-radius: var(--border-radius);
+    transition: flex-basis 1s cubic-bezier(0,.9,.4,.99); /* making the flex-basis change transition smoothly over 0.5 seconds, with the selected bezier function as timing funciton*/
+}
+
+section.about article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+section.about article .title {
+    background: var(--color1);
+    border-radius: var(--border-radius);
+    flex: 1;
+    display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
+    align-items: flex-end; /* align text to the bottom of the container */
+    padding: var(--gutter); /* padding around the text, using vw to make it responsive */
+    transition: flex-basis 1s cubic-bezier(0,.9,.4,.99); /* making the flex-basis change transition */
+
+}
+
+
+section.about article .description {
+    background: var(--color3);
+    border-radius: var(--border-radius);
+    color: var(--backgroundcolor);
+    flex: 1; 
+    display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
+    align-items: center; /* align text to the vertical center of the container */
+    padding: var(--gutter); /* padding around the text, using vw to make it responsive */
+}
+
+
+

@@ -1,0 +1,29 @@
+{
+  "name": "portfolioexercise",
+  "version": "1.0.0",
+  "description": "a portfolio site as an exercise to practice with javascript",
+  "directories": {
+    "test": "test"
+  },
+  "source": "src/index.html",
+  "scripts": {
+    "start": "npm run prebuild && parcel",
+    "build": "parcel build",
+    "prebuild": "del /q dist"
+  },
+  "browserlist": "> 0.5%, last 2 versions, not dead",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlessioGFerraioli/PortfolioExercise.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlessioGFerraioli/PortfolioExercise/issues"
+  },
+  "homepage": "https://github.com/AlessioGFerraioli/PortfolioExercise#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.15.4",
+    "parcel": "^2.15.4"
+  }
+}

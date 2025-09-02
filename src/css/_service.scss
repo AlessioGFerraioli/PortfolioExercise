@@ -1,0 +1,112 @@
+/* styles for the service section */
+
+section.service article {
+    display: flex;
+    width: 100%;
+    
+}
+
+
+section.service figure {
+    background: var(--color3);
+    border-radius: var(--border-radius);
+    margin: 0; /* removing default margin of figure */
+    flex-basis: 56.25vw; /* setting the size of this container in relation to the viewport */
+    display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
+    align-items: center; /* align text to the vertical center of the container */
+    justify-content: center; /* align text to the horizontal center of the container */
+    max-width: 62.5vw; /* setting a max width to prevent the image from getting too big and coer the text */
+    min-width: 12.5vw; /* setting a min width to prevent the image from getting too small and becoming unrecognizable */
+    transition: flex-basis 1s cubic-bezier(0,.9,.4,.99); /* making the flex-basis change transition smoothly over 1 seconds*/
+
+}
+
+section.service figure img {
+    width: 80%; /* making the image take half the width of the container */
+}
+
+section.service .text {
+    background: var(--color5);
+    border-radius: var(--border-radius);
+    flex: 1; /* making this container take the remaining space */
+    display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
+    flex-direction: column; /* stacking the text vertically */
+    justify-content: center; /* align text to the vertical center of the container */
+    padding: var(--gutter); /* padding around the text, using vw to make it responsive */
+}
+
+section.service .text a {
+    font-family: "Song Myung", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* service section animation */
+
+@keyframes float {
+    0% {
+        transform: translateY(-5%);  /* moving the element up by 5% of its height*/
+    }
+
+    100% {
+        transform: translateY(5%); /* moving the element down by 5% */
+    }
+}
+
+section.service figure img {
+    animation-name: float;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate; /* making the animation reverse direction each time it completes */
+    animation-timing-function: cubic-bezier(.68,.03,.39,1.02); /* making the animation start and end smoothly */
+
+}
+
+
+/* different background colors for each service section figure */
+
+section.service-sword figure {
+    background: var(--color3);
+}
+
+section.service-edge figure {
+    background: var(--color2);
+}
+
+section.service-light figure {
+    background: var(--color1);
+}
+
+
+/* different font colors for each service section heading text and link text */
+section.service-sword .text h2, section.service-sword .text a {
+    color: var(--color3);
+}
+section.service-edge .text h2, section.service-edge .text a {
+    color: var(--color2);
+}
+section.service-light .text h2, section.service-light .text a {
+    color: var(--color1);
+}
+
+
+
+
+
+/* making the layout responsive for smaller screens */
+@media only screen and (max-width: 768px) {
+
+    section.service article {
+        flex-direction: column; /* stacking the containers vertically instead of side by side */    
+    }
+
+    section.service figure {
+        flex-basis: 25vh; /* changing the size of this container in relation to the viewport height instead of width */
+    }
+
+        section.service figure img {
+        width: 20%; /* making the image take less width of the container */
+    }
+
+}

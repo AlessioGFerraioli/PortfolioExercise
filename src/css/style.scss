@@ -1,0 +1,102 @@
+/* CSS reset: setting box-sizing to border-box for all elements, meaning that widht and height are calculated including the border and padding */
+* {
+    box-sizing: border-box;
+}
+
+/* general styles: remove default margin and padding, changing background and text color, setting font size and family */
+html, body {
+    --border-radius: 100px; /* setting a CSS variable for border radius to be used throughout the stylesheet */
+    --color1: #BFAE99; /* dark blue */
+    --color2: #4E4D73; /* light purple */
+    --color4: #292840; /* light green */
+    --color5: #979CA6;
+    --color3: #D7EEFC;
+    --backgroundcolor: #000000; /* black */
+    --highlightcolor: #ffffff; /* white */
+    --gutter: 3.125vw 6.25vw; /* setting a CSS variable for gutter/padding to be used throughout the stylesheet */
+    margin: 0;
+    padding: 0;
+    background: var(--backgroundcolor);
+    color: var(--highlightcolor);
+    font-size: 30px;
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 70px;
+    line-height: 1em;
+    margin: 0px;
+}
+
+h2 {
+    font-size: 60px;
+    margin: 0px;
+}
+
+a {
+    color: var(--highlightcolor);
+    text-decoration: none;
+}
+
+section {
+    display: flex;
+    width: 100%; /* making each section take full viewport width and height */
+    position: relative; /* setting position relative to use absolute positioning for the nav bar */
+    height: calc(100vh - 100px); /* making each section take not the full viewport height but leaving space for the navigation bar */
+    top: 100px; /* pushing the sections down by the height of the nav bar */
+    z-index: 2; /* making sure the sections are above other content and under other */
+}
+
+/* setting the sections that should scroll a certain way ("sticky" scrolling) to be sticky */
+section.sticky {
+    position: sticky;
+    margin-top: 100px; /* making the sticky section stick below the navigation bar */
+}
+
+/* setting the sections intended for being full screen to cover the entire viewport */
+section.full-screen {
+    height: 100vh; /* making the section take the full viewport height */
+    top: 0; /* making the section start from the top of the viewport */
+    margin-top: 0; /* removing any top margin */
+    z-index: 3; /* making sure the full-screen section is above other content */
+}
+
+
+/* styles for the navigation bar */
+@import "_nav.scss";
+
+/* styles for the about section */
+@import "_about.scss";
+
+/* styles for the service section */
+@import "_service.scss";
+
+
+/* styles for the contact section */
+@import "_contact.scss";
+    
+
+/* making the layout responsive for smaller screens */
+@media only screen and (max-width: 768px) {
+
+    html, body {
+        --border-radius: 50px; /* reducing the border radius for smaller screens */
+        --gutter: 6.25vw; /* increasing the gutter/padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
+
+}
