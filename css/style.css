@@ -5,12 +5,20 @@
 
 /* general styles: remove default margin and padding, changing background and text color, setting font size and family */
 html, body {
+    --border-radius: 100px; /* setting a CSS variable for border radius to be used throughout the stylesheet */
+    --color1: #2300c0; /* dark blue */
+    --color2: #d6a3fb; /* light purple */
+    --color3: #d0ff94; /* light green */
+    --gutter: 3.125vw; /* setting a CSS variable for gutter/padding to be used throughout the stylesheet */
     margin: 0;
     padding: 0;
     background: #000000;
     color: #ffffff;
     font-size: 30px;
-    font-family: sans-serif;
+    font-family: "Syne", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
 
 h1 {
@@ -80,7 +88,9 @@ nav ul li {
 
 nav ul li a {
     color: #ffffff;
-    font-family: monospace;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
 }
 
 
@@ -89,7 +99,7 @@ nav ul li a {
 section.about .empty {
     flex-basis: 37.5vw;
     background: #e5e5e5;
-    border-radius: 100px;
+    border-radius: var(--border-radius);
 }
 
 section.about article {
@@ -99,23 +109,23 @@ section.about article {
 }
 
 section.about article .title {
-    background: #332757;
-    border-radius: 100px;
+    background: var(--color1);
+    border-radius: var(--border-radius);
     flex: 2; /* takes twice the space of description */
     display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
     align-items: flex-end; /* align text to the bottom of the container */
-    padding: 6.27vw; /* padding around the text, using vw to make it responsive */
+    padding: var(--gutter); /* padding around the text, using vw to make it responsive */
 }
 
 
 section.about article .description {
-    background: #d6a3fb;
-    border-radius: 100px;
+    background: var(--color2);
+    border-radius: var(--border-radius);
     color: #000000;
     flex: 1; /* takes half the space of title */
     display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
     align-items: center; /* align text to the vertical center of the container */
-    padding: 6.27vw; /* padding around the text, using vw to make it responsive */
+    padding: var(--gutter); /* padding around the text, using vw to make it responsive */
 }
 
 
@@ -128,8 +138,8 @@ section.service article {
 
 
 section.service figure {
-    background: #d0ff94;
-    border-radius: 100px;
+    background: var(--color3);
+    border-radius: var(--border-radius);
     margin: 0; /* removing default margin of figure */
     flex-basis: 56.25vw; /* setting the size of this container in relation to the viewport */
     display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
@@ -143,50 +153,50 @@ section.service figure img {
 
 section.service .text {
     background: #1f1a1c;
-    border-radius: 100px;
+    border-radius: var(--border-radius);
     flex: 1; /* making this container take the remaining space */
     display: flex; /* using flexbox to decide where to automatically put the content i.e. the text */
     flex-direction: column; /* stacking the text vertically */
     justify-content: center; /* align text to the vertical center of the container */
-    padding: 6.27vw; /* padding around the text, using vw to make it responsive */
+    padding: var(--gutter); /* padding around the text, using vw to make it responsive */
 }
 
 section.service .text a {
-    font-family: monospace;
+    font-family: "Space Mono", monospace;
 }
 
 
 /* different background colors for each service section figure */
 
 section.service-sword figure {
-    background: #d0ff94;
+    background: var(--color3);
 }
 
 section.service-edge figure {
-    background: #d6a3fb;
+    background: var(--color2);
 }
 
 section.service-light figure {
-    background: #332757;
+    background: var(--color1);
 }
 
 
 /* different font colors for each service section heading text and link text */
 section.service-sword .text h2, section.service-sword .text a {
-    color: #d0ff94;
+    color: var(--color3);
 }
 section.service-edge .text h2, section.service-edge .text a {
-    color: #d6a3fb;
+    color: var(--color2);
 }
 section.service-light .text h2, section.service-light .text a {
-    color: #332757;
+    color: var(--color1);
 }
 
 
 /* contact section styles */
 section.contact {
-    background: linear-gradient(#332757,#d0ff94 60%, #d6a3fb 70%, #e5e5e5);
-    border-radius: 100px;
+    background: linear-gradient(var(--color1),var(--color3) 60%, var(--color2) 70%, #e5e5e5);
+    border-radius: var(--border-radius);
     align-items: center;
     justify-content: center;
 }
@@ -194,4 +204,26 @@ section.contact {
 section.contact a {
     font-size: 100px;
     color: #000000;
+    font-weight: 700;
+}
+
+/* making the layout responsive for smaller screens */
+@media only screen and (max-width: 768px) {
+
+    html, body {
+        --border-radius: 50px; /* reducing the border radius for smaller screens */
+        --gutter: 6.25vw; /* increasing the gutter/padding for smaller screens */
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    nav ul li {
+        margin-left: 20px;
+    }
 }
